@@ -158,6 +158,10 @@ git clone git@github.bamtech.co:fed-core/browser-sdk.git $sdkdir/browser-sdk
 git clone git@github.bamtech.co:kmcnamee/PullRequests.git $sdkdir/PullRequests
 git clone git@github.bamtech.co:sdk-doc/spec-sdk.git $sdkdir/spec-sdk
 
+echo "***************************** Running npm install *****************************"
+cd $sdkdir/browser-sdk
+npm i
+
 touch $sdkdir/sdk.code-workspace
 cat > $sdkdir/sdk.code-workspace <<- EOM
 {
