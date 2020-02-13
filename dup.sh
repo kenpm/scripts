@@ -187,9 +187,6 @@ cat > $sdkdir/sdk.code-workspace <<- EOM
 }
 EOM
 
-# Open VS Code
-code $sdkdir/sdk.code-workspace
-
 
 # =========================
 # Setup Bash Aliases
@@ -334,5 +331,9 @@ cat ~/.bash_aliases
 
 echo "***************************** Reloading the Bash Profile *****************************"
 . ~/.bashrc
+
+
+# Open VS Code
+code $sdkdir/sdk.code-workspace
 
 echo "***************************** D E V  S E T U P  C O M P L E T E *****************************"
