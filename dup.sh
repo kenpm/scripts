@@ -36,7 +36,7 @@ sudo apt install open-vm-tools-desktop -yy
 # =========================
 echo "***************************** Installing GDebi, xsel, openssh-server, sshfs, net-tools, synaptic *****************************"
 dpkg -l | grep -qw gdebi || sudo apt-get install -yyq gdebi
-sudo apt install -yy xsel openssh-server sshfs net-tools synaptic
+sudo apt install -yy apt-transport-https curl xsel openssh-server sshfs net-tools synaptic
 
 
 # =========================
@@ -56,7 +56,6 @@ done
 # Install Sublime Merge
 # =========================
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo apt install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt update
 sudo apt install sublime-merge
@@ -75,7 +74,6 @@ sudo apt install google-chrome-stable
 # Install Brave Browser
 # =========================
 echo "***************************** Installing Brave *****************************"
-sudo apt install apt-transport-https curl -yy
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
