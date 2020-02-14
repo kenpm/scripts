@@ -138,14 +138,8 @@ echo
 sshKey=`sudo cat ~/.ssh/github-$HOSTNAME.pub`
 echo "Sending the following SSH key data to Github:"
 echo "{ \"title\": \"github-$HOSTNAME\", \"key\": \"$sshKey\" }"
+# Prompted once for the LDAP password here
 curl -v -u "$gitUsername" -X POST --data "{ \"title\": \"github-$HOSTNAME\", \"key\": \"$sshKey\" }" https://$githubUrl/api/v3/user/keys
-#echo "Go to https://$githubUrl/settings/ssh/new, enter \"github-$HOSTNAME\" as the Title and the following for the Key:" && echo
-#cat ~/.ssh/github-$HOSTNAME.pub && echo
-#cat ~/.ssh/github-$HOSTNAME.pub | xsel -ib # ctrl-v
-#echo "github-$HOSTNAME" | xsel -ip # middle-click
-#sudo update-alternatives --set x-www-browser /usr/bin/brave-browser-stable
-#x-www-browser https://$githubUrl/settings/ssh/new
-echo "The key name and value have been copied to the clipboard - middle-click to paste the name and press ctrl-v to paste the key. Once the new SSH key has been added, press any key to continue." && read -n 1 -s
 ssh-add -k ~/.ssh/github-$HOSTNAME
 # Prompted once for the SSH passphrase here
 ssh -T git@$githubUrl
