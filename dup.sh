@@ -12,6 +12,7 @@
 # 2. Import a browser profile (easy with Firefox, maybe not with others)
 
 echo "What is your Github full name?" && read name
+echo "What is your Github username?" && read gitUsername
 echo "What is your Github email?" && read email
 echo "What will be your code root folder?" && read codeRoot
 echo "What is the Github server?" && read githubUrl
@@ -134,10 +135,14 @@ echo "***************************** Setting up the Git SSH Key *****************
 echo "Connecting to the VPN. You will now be asked for your LDAP password..."
 sudo openconnect -u $email -b -q $vpnUrl
 echo
-echo "Go to https://$githubUrl/settings/ssh/new, enter \"github-$HOSTNAME\" as the Title and the following for the Key:" && echo
-cat ~/.ssh/github-$HOSTNAME.pub && echo
-cat ~/.ssh/github-$HOSTNAME.pub | xsel -ib # ctrl-v
-echo "github-$HOSTNAME" | xsel -ip # middle-click
+sshKey=`sudo cat ~/.ssh/github-$HOSTNAME.pub`
+echo "Sending the following SSH key data to Github:"
+echo "{ \"title\": \"github-$HOSTNAME\", \"key\": \"$sshKey\" }"
+curl -v -u "$gitUsername" -X POST --data "{ \"title\": \"github-$HOSTNAME\", \"key\": \"$sshKey\" }" https://$githubUrl/api/v3/user/keys
+#echo "Go to https://$githubUrl/settings/ssh/new, enter \"github-$HOSTNAME\" as the Title and the following for the Key:" && echo
+#cat ~/.ssh/github-$HOSTNAME.pub && echo
+#cat ~/.ssh/github-$HOSTNAME.pub | xsel -ib # ctrl-v
+#echo "github-$HOSTNAME" | xsel -ip # middle-click
 #sudo update-alternatives --set x-www-browser /usr/bin/brave-browser-stable
 #x-www-browser https://$githubUrl/settings/ssh/new
 echo "The key name and value have been copied to the clipboard - middle-click to paste the name and press ctrl-v to paste the key. Once the new SSH key has been added, press any key to continue." && read -n 1 -s
