@@ -9,6 +9,9 @@
 # TODO
 # =========================
 # 1. Import all Visual Studio Code settings and extensions
+#    a. User settings appear to be in ~/.config/Code/User/settings.json. Maybe just throw these in the workspace file?
+#    b. Extensions appear to be in ~/.vscode/extensions. Probably just need to grab the whole ~/.vscode folder.
+#    c. Investigate whether there's a programmatic way to download extensions for VS Code.
 # 2. Import a browser profile (easy with Firefox, maybe not with others)
 
 
