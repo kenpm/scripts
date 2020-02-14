@@ -105,12 +105,13 @@ EOM
 echo "export PATH=~/.npm-global/bin:\$PATH" >> ~/.profile
 . ~/.profile
 
+https://github.com/github/hub/releases/download/v2.14.1/hub-linux-amd64-2.14.1.tgz
 
 # =========================
-# Install Git and Hub
+# Install Git
 # =========================
-echo "***************************** Installing Git and Hub *****************************"
-sudo apt install git hub -yy
+echo "***************************** Installing Git *****************************"
+sudo apt install git -yy
 git config --global user.name "$name"
 git config --global user.email "$email"
 git config --global url."ssh://git@$githubUrl".insteadOf git://$githubUrl
@@ -124,6 +125,14 @@ User git
 IdentityFile ~/.ssh/github-$HOSTNAME
 EOM
 
+# =========================
+# Install Hub
+# sudo apt install hub failed on Linux Mint so need to figure out the following manual install
+# =========================
+#mkdir ~/bin
+#hubVersion="2.14.1"
+#wget https://github.com/github/hub/releases/download/v$hubVersion/hub-linux-amd64-$hubVersion.tgz
+#tar -zxvf hub-linux-amd64-$hubVersion.tgz -C ~/bin
 
 # =========================
 # Install VPN Libraries
