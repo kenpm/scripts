@@ -11,6 +11,7 @@
 # 1. Import all Visual Studio Code settings and extensions
 # 2. Import a browser profile (easy with Firefox, maybe not with others)
 
+
 echo "What is your Github full name?" && read name
 echo "What is your Github username?" && read gitUsername
 echo "What is your Github email?" && read email
@@ -44,8 +45,11 @@ sudo apt install -yy apt-transport-https curl xsel openssh-server sshfs net-tool
 # =========================
 # Get/Install .deb Packages
 # =========================
+echo "***************************** Downloading VS Code *****************************"
 wget -O vscode-linux-deb-x64-stable.deb https://update.code.visualstudio.com/latest/linux-deb-x64/stable
+echo "***************************** Downloading Slack *****************************"
 wget -O slack-desktop-4.3.2-amd64.deb https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb
+echo "***************************** Downloading Stacer *****************************"
 wget -O stacer_1.1.0_amd64.deb https://github.com/oguzhaninan/Stacer/releases/download/v1.1.0/stacer_1.1.0_amd64.deb
 for FILE in ./*.deb
 do
@@ -57,6 +61,7 @@ done
 # =========================
 # Install Sublime Merge
 # =========================
+echo "***************************** Installing Sublime Merge *****************************"
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt update
@@ -66,6 +71,7 @@ sudo apt install sublime-merge
 # =========================
 # Install Google Chrome
 # =========================
+echo "***************************** Installing Google Chrome *****************************"
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 sudo apt update 
@@ -98,7 +104,6 @@ email=$email
 EOM
 echo "export PATH=~/.npm-global/bin:\$PATH" >> ~/.profile
 . ~/.profile
-npm install -g n
 
 
 # =========================
@@ -134,7 +139,6 @@ sudo apt install vpnc network-manager-vpnc network-manager-vpnc-gnome -yy
 echo "***************************** Setting up the Git SSH Key *****************************"
 echo "Connecting to the VPN. You will now be asked for your LDAP password..."
 sudo openconnect -u $email -b -q $vpnUrl
-echo
 sshKey=`sudo cat ~/.ssh/github-$HOSTNAME.pub`
 echo "Sending the following SSH key data to Github:"
 echo "{ \"title\": \"github-$HOSTNAME\", \"key\": \"$sshKey\" }"
@@ -160,6 +164,7 @@ git clone git@$githubUrl:sdk-doc/spec-sdk.git $codeRoot/spec-sdk
 
 echo "***************************** Running npm install *****************************"
 cd $codeRoot/browser-sdk
+npm install -g n
 npm i
 
 touch $codeRoot/sdk.code-workspace
