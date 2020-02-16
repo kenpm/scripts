@@ -77,7 +77,7 @@ sudo apt install sublime-merge
 echo "***************************** Installing Google Chrome *****************************"
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-sudo apt update 
+sudo apt update
 sudo apt install google-chrome-stable
 
 
@@ -108,7 +108,6 @@ EOM
 echo "export PATH=~/.npm-global/bin:\$PATH" >> ~/.profile
 . ~/.profile
 
-https://github.com/github/hub/releases/download/v2.14.1/hub-linux-amd64-2.14.1.tgz
 
 # =========================
 # Install Git

@@ -6,6 +6,8 @@
 # http://osxdaily.com/2019/01/04/25-of-the-best-terminal-tips-from-2018/
 
 wget https://iterm2.com/downloads/stable/iTerm2-3_3_9.zip
+tar -zxvf iTerm2-3_3_9.zip -C ~/bin
+
 # need to figure out how to unzip and install iterm2
 
 # ******************************************
