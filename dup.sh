@@ -189,6 +189,8 @@ cat > $codeRoot/sdk.code-workspace <<- EOM
   "settings": {
     "editor.rulers": [120],
     "workbench.colorCustomizations": { "editorRuler.foreground": "#ff6666" },
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
     "files.exclude": {
       "*.log": true,
       "**/.git": false,
