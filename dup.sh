@@ -42,7 +42,7 @@ sudo apt install open-vm-tools-desktop -yy
 # =========================
 echo "***************************** Installing GDebi, xsel, openssh-server, sshfs, net-tools, synaptic *****************************"
 dpkg -l | grep -qw gdebi || sudo apt-get install -yyq gdebi
-sudo apt install -yy apt-transport-https curl xsel openssh-server sshfs net-tools synaptic
+sudo apt install -yy firefox apt-transport-https curl xsel openssh-server sshfs net-tools synaptic network-manager-openconnect-gnome network-manager-vpnc-gnome
 
 
 # =========================
@@ -69,26 +69,6 @@ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt update
 sudo apt install sublime-merge
-
-
-# =========================
-# Install Google Chrome
-# =========================
-echo "***************************** Installing Google Chrome *****************************"
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-sudo apt update
-sudo apt install google-chrome-stable
-
-
-# =========================
-# Install Brave Browser
-# =========================
-echo "***************************** Installing Brave *****************************"
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-sudo apt update
-sudo apt install -yy brave-browser
 
 
 # =========================
@@ -126,22 +106,6 @@ Host $githubUrl
 User git
 IdentityFile ~/.ssh/github-$HOSTNAME
 EOM
-
-# =========================
-# Install Hub
-# sudo apt install hub failed on Linux Mint so need to figure out the following manual install
-# =========================
-#mkdir ~/bin
-#hubVersion="2.14.1"
-#wget https://github.com/github/hub/releases/download/v$hubVersion/hub-linux-amd64-$hubVersion.tgz
-#tar -zxvf hub-linux-amd64-$hubVersion.tgz -C ~/bin
-
-# =========================
-# Install VPN Libraries
-# =========================
-echo "***************************** Installing VPN Libraries *****************************"
-sudo apt install openconnect network-manager-openconnect network-manager-openconnect-gnome -yy
-sudo apt install vpnc network-manager-vpnc network-manager-vpnc-gnome -yy
 
 
 # =========================
@@ -219,6 +183,7 @@ alias     gps='git push'
 alias    gpsn='git push --no-verify'
 alias      gf='git fetch'
 alias     gpl='git pull --rebase'
+alias     gst='git status'
 
 alias     tes='npm run test'
 alias     seq='npm run sequences'
@@ -293,6 +258,11 @@ alias   tuses='npm run test-unit-session'
 alias   tises='npm run test-integration-session'
 alias  tusses='npm run test-unit-services-session'
 alias  tisses='npm run test-integration-services-session'
+
+alias   tusoc='npm run test-unit-sockets'
+alias   tisoc='npm run test-integration-sockets'
+alias  tussoc='npm run test-unit-services-sockets'
+alias  tissoc='npm run test-integration-services-sockets'
 
 alias   tusub='npm run test-unit-subscription'
 alias   tisub='npm run test-integration-subscription'
