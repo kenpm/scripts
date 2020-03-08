@@ -22,6 +22,8 @@ echo "What will be your code root folder?" && read codeRoot
 echo "What is the Github server?" && read githubUrl
 echo "What is the VPN URL?" && read vpnUrl
 
+wget --no-check-certificate -r 'https://docs.google.com/uc?export=download&id=1A3toMX_BoI-9UGpYPd79ASHWGuwAJP-L' -O ~/Downloads/mozilla-backup.zip
+unzip -u ~/Downloads/mozilla-backup.zip -d ~/
 
 # =========================
 # Update Repositories
