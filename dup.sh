@@ -148,13 +148,17 @@ touch $codeRoot/sdk.code-workspace
 cat > $codeRoot/sdk.code-workspace <<- EOM
 {
   "folders": [
-    { "path": "browser-sdk"  }
     { "path": "PullRequests" },
+    { "path": "browser-sdk"  },
     { "path": "spec-sdk"  }
   ],
   "settings": {
     "editor.rulers": [120],
-    "workbench.colorCustomizations": { "editorRuler.foreground": "#ff6666" },
+    "editor.minimap.size": "fit",
+    "editor.minimap.maxColumn": 60,
+    "workbench.colorCustomizations": { 
+        "editorRuler.foreground": "#ff6666"
+    },
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
     "files.exclude": {
