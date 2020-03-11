@@ -153,6 +153,9 @@ cat > $codeRoot/sdk.code-workspace <<- EOM
     { "path": "spec-sdk"  }
   ],
   "settings": {
+    "window.zoomLevel": 1,
+    "editor.fontFamily": "'Hack', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 12,
     "editor.rulers": [120],
     "editor.minimap.size": "fit",
     "editor.minimap.maxColumn": 60,
