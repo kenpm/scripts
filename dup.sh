@@ -187,6 +187,11 @@ touch ~/.bash_aliases
 
 cat > ~/.bash_aliases <<- EOM
 alias    nano='nano -l'
+alias    aptu='sudo apt update'
+alias   aptfu='sudo apt full-upgrade'
+alias   aptlu='apt list -u'
+alias   aptli='apt list -i'
+alias freemem='sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches"'
 
 alias     gps='git push'
 alias    gpsn='git push --no-verify'
